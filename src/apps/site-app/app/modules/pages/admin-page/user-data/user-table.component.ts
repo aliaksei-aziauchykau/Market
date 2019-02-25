@@ -110,8 +110,8 @@ export class UserTableComponent extends SafeComponent implements OnInit, AfterVi
         return this.locker.isLocked(LockerTypeEnum.HttpCall);
     }
 
-    public get isLoadingRow(): boolean {
-        return this.locker.isLocked(LockerTypeEnum.UpdateHttpCall);
+    public isUpdateMode(element: UserInfoModel): boolean {
+        return element === this.selectedItem && this.mode === EditorModeEnum.Update;
     }
 
     /** Whether the number of selected elements matches the total number of rows. */

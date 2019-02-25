@@ -64,8 +64,8 @@
 
                         <ng-container matColumnDef="star" stickyEnd>
                             <th mat-header-cell *matHeaderCellDef> </th>
-                            <td mat-cell *matCellDef="let element; let index = index">
-                                <div *ngIf="element === selectedItem && mode === EditorModeEnum.Update; else elseBlock">
+                            <td mat-cell *matCellDef="let element; let index = index" [class.confirm-position]="isUpdateMode(element)">
+                                <div *ngIf="isUpdateMode(element); else elseBlock">
                                     <button mat-raised-button (click)="confirm()"> Confirm </button>
                                     <button class="ml-2" mat-raised-button (click)="mode = EditorModeEnum.None; selectedItem = null;">
                                         Cancel </button>
