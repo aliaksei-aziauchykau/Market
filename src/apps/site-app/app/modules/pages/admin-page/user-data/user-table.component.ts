@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, AfterViewInit, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, Input, AfterViewInit, ElementRef, EventEmitter } from "@angular/core";
 import { MatTableDataSource } from "@angular/material/table";
 import { UserInfoModel, UserInfoListModel } from "../../../../models/user-info.model";
 import { SelectionModel } from "@angular/cdk/collections";
@@ -9,7 +9,7 @@ import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { merge, observable, of, Observable } from "rxjs";
 import { ICrudService } from "../../../../interfaces/crud-service.interface";
-import { switchMap, catchError, startWith, tap, takeUntil, finalize, delay, debounceTime, distinctUntilChanged } from "rxjs/operators";
+import { switchMap, catchError, startWith, tap, takeUntil, finalize, delay, debounceTime, distinctUntilChanged, flatMap } from "rxjs/operators";
 import { Locker } from "../../../../utils/locker";
 import { LockerTypeEnum } from "../../../../utils/locker-type.enum";
 
@@ -34,6 +34,8 @@ export class UserTableComponent extends SafeComponent implements OnInit, AfterVi
     EditorModeEnum = EditorModeEnum;
 
     apiFilterValue: string = null;
+
+    hardEmit: EventEmitter<{}> = new EventEmitter();
 
     private readonly debounceTime = 1000;
     private readonly debounceTimeOperator = debounceTime(this.debounceTime);
@@ -80,7 +82,11 @@ export class UserTableComponent extends SafeComponent implements OnInit, AfterVi
                     tap(() => console.log("rerewe", this.apiFilterValue)),
                 );
 
-        merge(this.sort.sortChange, this.paginator.page, apiFilterValue$)
+        merge(
+            this.sort.sortChange,
+            this.paginator.page,
+            this.hardEmit,
+            apiFilterValue$)
             .pipe(
                 takeUntil(this.unsubscriber),
                 startWith({}),
@@ -110,8 +116,11 @@ export class UserTableComponent extends SafeComponent implements OnInit, AfterVi
         return this.locker.isLocked(LockerTypeEnum.HttpCall);
     }
 
-    public isUpdateMode(element: UserInfoModel): boolean {
-        return element === this.selectedItem && this.mode === EditorModeEnum.Update;
+    public isUpdateOrDeleteMode(element: UserInfoModel): boolean {
+        const result = element === this.selectedItem
+            && (this.mode === EditorModeEnum.Update
+                || this.mode === EditorModeEnum.Remove);
+        return result;
     }
 
     /** Whether the number of selected elements matches the total number of rows. */
@@ -158,18 +167,24 @@ export class UserTableComponent extends SafeComponent implements OnInit, AfterVi
                 const selectedItem = this.selectedItem;
                 this.clearSelection();
                 this.crudService.update(selectedItem.id, selectedItem)
-                    .pipe(
-                        this.loaderOperator()
-                    )
+                    .pipe(this.loaderOperator())
                     .subscribe();
             } break;
             case EditorModeEnum.Remove: {
-                this.crudService.delete(this.selectedItem.id);
+                const selectedItem = this.selectedItem;
+                this.clearSelection();
+                this.crudService.remove(selectedItem.id)
+                    .pipe(
+                        this.loaderOperator(),
+                        tap(() => this.hardEmit.emit())
+                    )
+                    .subscribe();
             } break;
             case EditorModeEnum.Add: {
                 this.crudService.add(<UserInfoModel>{})
                     .pipe(
-                        this.loaderOperator()
+                        this.loaderOperator(),
+                        tap(() => this.hardEmit.emit())
                     )
                     .subscribe();
             } break;
