@@ -4,7 +4,7 @@ import { StripeHttpService } from "../../../../../services/http-services/stripe.
 import { CreateCustomerRequest } from "../../../../../models/requests/create-customer.request";
 import { DataStorageService } from "../../../../../services/data-storage.service";
 import { SafeComponent } from "../../../../../utils/safe-component.abstract";
-import { StripeInfoModel, StripePaymentMethod } from "../../../../../models/stripe-info.model";
+import { StripeInfoModel, StripePaymentMethod } from "../../../../../models/stripe.view.models";
 import { check } from "../../../../../utils/custom-operators";
 import { GenericListItem } from "../../../controls/models/generic-list-item.model";
 import { CreateSubscriptionRequest } from "../../../../../models/requests/create-subscription.request";
@@ -33,12 +33,12 @@ export class SubscribePopupComponent extends SafeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.dataStorageService.stripeInfoCurrent.pipe(
-            check(this.unsubscriber, this.stripeInfo, x => {
-                this.stripeInfo = x;
-                this.paymentMethods = this.stripeInfo.paymentMethods.map(x => new GenericListItem(x)) || [];
-            })
-        ).subscribe();
+        // this.dataStorageService.stripeInfoCurrent.pipe(
+        //     check(this.unsubscriber, this.stripeInfo, x => {
+        //         this.stripeInfo = x;
+        //         this.paymentMethods = this.stripeInfo.paymentMethods.map(x => new GenericListItem(x)) || [];
+        //     })
+        // ).subscribe();
     }
 
     selectPlan(plan: PlanTypeModel) {

@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
 import { Component, OnInit } from "@angular/core";
-import { UserInfoModel } from "../../../models/user-info.model";
+import { UserInfoModel } from "../../../models/user.view.models";
 import { Locker } from "../../../utils/locker";
 import { LockerTypeEnum } from "../../../utils/locker-type.enum";
 

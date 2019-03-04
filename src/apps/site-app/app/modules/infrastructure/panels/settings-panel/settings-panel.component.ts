@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { SafeComponent } from "../../../../utils/safe-component.abstract";
 import { IAppState } from "../../../../redux/app.state";
 import { select, NgRedux } from "@angular-redux/store";
-import { UserInfoModel } from "../../../../models/user-info.model";
+import { UserInfoModel } from "../../../../models/user.view.models";
 import { map } from "rxjs/operators";
 import { check } from "../../../../utils/custom-operators";
 import { changeUserPanel } from "../../../../redux/panels.reducer";

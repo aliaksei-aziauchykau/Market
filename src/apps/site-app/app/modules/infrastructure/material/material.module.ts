@@ -11,22 +11,23 @@ import { MatSortModule } from "@angular/material/sort";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatCardModule } from "@angular/material/card";
 import { MatExpansionModule } from "@angular/material/expansion";
+import { MatGenericTable } from "./models/mat-generic-table.abstract";
 
 @NgModule({
-  exports: [
-    MatInputModule,
-    MatTableModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    MatExpansionModule
-  ]
+    exports: [
+        MatInputModule,
+        MatTableModule,
+        MatCheckboxModule,
+        MatIconModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressSpinnerModule,
+        MatCardModule,
+        MatExpansionModule
+    ]
 })
 
-export class MaterialModule {}
+export class MaterialModule { }

@@ -5,7 +5,7 @@ import { DataStorageService } from "../../../../services/data-storage.service";
 import { check } from "../../../../utils/custom-operators";
 import { ProductHttpService } from "./../../../../services/http-services/product.http.service";
 import { StripeHttpService } from "../../../../services/http-services/stripe.http.service";
-import { StripeInfoModel } from "../../../../models/stripe-info.model";
+import { StripeInfoModel } from "../../../../models/stripe.view.models";
 import { CurrentUserHttpService } from "../../../../services/http-services/current.user.http.service";
 
 
@@ -39,12 +39,12 @@ export class ProductSettingsPanelComponent extends SafeComponent implements OnIn
             })
         ).subscribe();
 
-        this.dataStorageService.stripeInfoCurrent.pipe(
-            check(this.unsubscriber, this.stripeInfo, x => {
-                this.stripeInfo = x;
-                this.isBindedProduct = Boolean(this.stripeInfo.product && this.stripeInfo.product.productToken);
-            })
-        ).subscribe();
+        // this.dataStorageService.stripeInfoCurrent.pipe(
+        //     check(this.unsubscriber, this.stripeInfo, x => {
+        //         this.stripeInfo = x;
+        //         this.isBindedProduct = Boolean(this.stripeInfo.product && this.stripeInfo.product.productToken);
+        //     })
+        // ).subscribe();
     }
 
     public linkProduct() {

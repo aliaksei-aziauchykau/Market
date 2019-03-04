@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { DataStorageService } from "../../../../services/data-storage.service";
 import { check } from "../../../../utils/custom-operators";
 import { SafeComponent } from "../../../../utils/safe-component.abstract";
-import { StripeInfoModel } from "../../../../models/stripe-info.model";
+import { StripeInfoModel } from "../../../../models/stripe.view.models";
 import { StripeAttachmentSettings } from "../../../business/payment/components/stripe-payment-attach/stripe-payment-attach-method.component";
 import { StripeHttpService } from "../../../../services/http-services/stripe.http.service";
 import { CreatePaymentMethodRequest } from "../../../../models/requests/create-payment-method.request";
@@ -32,14 +32,14 @@ export class PaymentSettingsPanelComponent extends SafeComponent implements OnIn
     }
 
     ngOnInit(): void {
-        this.dataStorageService.stripeInfoCurrent
-            .pipe(
-                check(this.unsubscriber, this.stripeInfo, x => {
-                    this.stripeInfo = x;
-                    this.payments = x.paymentMethods.map(p => new GenericListItem(p));
-                })
-            )
-            .subscribe();
+        // this.dataStorageService.stripeInfoCurrent
+        //     .pipe(
+        //         check(this.unsubscriber, this.stripeInfo, x => {
+        //             this.stripeInfo = x;
+        //             this.payments = x.paymentMethods.map(p => new GenericListItem(p));
+        //         })
+        //     )
+        //     .subscribe();
 
     }
 

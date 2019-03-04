@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { StripeInfoModel } from "../../../../models/stripe-info.model";
+import { StripeInfoModel } from "../../../../models/stripe.view.models";
 import { SettingsService } from "../../../../services/settings.service";
 import { DataStorageService } from "../../../../services/data-storage.service";
 import { SafeComponent } from "../../../../utils/safe-component.abstract";

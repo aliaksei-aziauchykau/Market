@@ -16,7 +16,8 @@ class StripeDetails {
         return {
             name: "StripeDetails",
             collection: "stripe-details",
-            mongoseConfig
+            mongoseConfig,
+            indexSetupFn: (schema) => schema.index({ userId: "text", stripeUserId: "text" })
         }
     }
 }

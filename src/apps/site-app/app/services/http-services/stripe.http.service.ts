@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpService } from "../http.service";
 import { Observable } from "rxjs";
 import { Endpoints } from "../../../../../core/endpoints";
-import { StripeInfoModel, StripePlanInfo } from "../../models/stripe-info.model";
+import { StripeInfoModel, StripePlanInfo, StripeInfoListModel } from "../../models/stripe.view.models";
 import { StorageSettings } from "./../../models/storage-settings";
 import { Constants } from "../../../../../core/constants";
 import { CreateCustomerRequest } from "../../models/requests/create-customer.request";
@@ -10,13 +10,16 @@ import { CreatePaymentMethodRequest } from "../../models/requests/create-payment
 import { CreateSubscriptionRequest } from "../../models/requests/create-subscription.request";
 import { trackExecution } from "../../utils/custom-operators";
 import { LockerTypeEnum } from "../../utils/locker-type.enum";
+import { CrudHttpService } from "./crud.http.service";
 
 @Injectable()
-export class StripeHttpService {
+export class StripeHttpService extends CrudHttpService<StripeInfoModel, StripeInfoListModel> {
 
     constructor(
-        private readonly httpService: HttpService
-    ) {}
+        protected readonly httpService: HttpService
+    ) {
+        super(httpService, Endpoints.Stripe);
+    }
 
     public getStripeInfo(userId: string, storageSettings?: StorageSettings): Observable<StripeInfoModel> {
         const source = this.httpService.invokeGet<StripeInfoModel>(

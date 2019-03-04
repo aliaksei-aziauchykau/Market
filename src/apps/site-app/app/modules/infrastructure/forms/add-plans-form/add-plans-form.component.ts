@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { StripePlanInfo } from "../../../../models/stripe-info.model";
+import { StripePlanInfo } from "../../../../models/stripe.view.models";
 import { StripeHttpService } from "../../../../services/http-services/stripe.http.service";
 import { CurrentUserHttpService } from "../../../../services/http-services/current.user.http.service";
 

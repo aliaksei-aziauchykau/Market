@@ -5,9 +5,38 @@ const routeHandler = require("../handlers/generic/route.handler");
 
 router.get("/", (request, response) => {
 
+    const {
+        limit,
+        skip,
+        sort,
+        order,
+        query,
+        helpQueryParams,
+    } = request.query;
+
+    if(!ValueCheckerUtil.CheckInputParams(response, {
+    }, {
+    }, {
+        limit,
+        skip,
+        sort,
+        order,
+        query,
+        helpQueryParams
+    })) return;
+
+    const queryParams = ValueCheckerUtil.ClearObject({
+        limit,
+        skip,
+        sort,
+        order,
+        query,
+    });
+
     routeHandler.getAllAction({
         getSchemaFn: sc => sc.ProductSchema,
-        getViewModelFn: vm => vm.ProductViewModel
+        getViewModelFn: vm => vm.ProductViewModel,
+        queryParams
     }, response);
 });
 

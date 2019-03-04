@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpService } from "../http.service";
 import { Observable } from "rxjs";
 import { Endpoints } from "../../../../../core/endpoints";
-import { StripeInfoModel, StripePlanInfo } from "../../models/stripe-info.model";
+import { StripeInfoModel, StripePlanInfo } from "../../models/stripe.view.models";
 import { StorageSettings } from "./../../models/storage-settings";
 import { Constants } from "../../../../../core/constants";
 import { PostInfoModel } from "../../models/post-info.modet";

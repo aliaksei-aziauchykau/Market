@@ -3,9 +3,10 @@ import { CommonModule } from "@angular/common";
 import { AdminPageComponent } from "./admin-page.component";
 import { LayoutModule } from "../../infrastructure/layouts/layout.module";
 import { MaterialModule } from "../../infrastructure/material/material.module";
-import { UserTableComponent } from "./user-data/user-table.component";
 import { FormsModule } from "@angular/forms";
 import { CustomPipesModule } from "../../../pipes/custom-pipes.module";
+import { MatUserDataTableComponent } from "./user-data/user-table.component";
+import { MatStripeDataTableComponent } from "./stripe-data/stripe-data.component";
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { CustomPipesModule } from "../../../pipes/custom-pipes.module";
         CustomPipesModule
     ],
     declarations: [
-        UserTableComponent,
+        MatUserDataTableComponent,
+        MatStripeDataTableComponent,
         AdminPageComponent
     ],
     exports: [

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { StripePlanInfo } from "../../../../models/stripe-info.model";
+import { StripePlanInfo } from "../../../../models/stripe.view.models";
 
 @Component({
     selector: "mc-plan-list",

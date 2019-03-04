@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { UserInfoModel } from "../../models/user-info.model";
+import { UserInfoModel } from "../../models/user.view.models";
 import { Observable } from "../../../../../../node_modules/rxjs";
 import { StorageSettings } from "../../models/storage-settings";
 import { DataStorageService } from "../data-storage.service";
 import { UserHttpService } from "./user.http.service";
 import { ProductInfo } from "../../models/product-info.model";
-import { StripeInfoModel } from "../../models/stripe-info.model";
+import { StripeInfoModel } from "../../models/stripe.view.models";
 import { ProductHttpService } from "./product.http.service";
 import { StripeHttpService } from "./stripe.http.service";
 import { trackExecution } from "../../utils/custom-operators";

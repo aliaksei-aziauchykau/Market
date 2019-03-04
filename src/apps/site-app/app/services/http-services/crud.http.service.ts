@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { getQueryParams } from "../../utils/query-params.util";
 import { HttpService } from "../http.service";
 
-export class CrudHttpService<TEntityList, TEntity> implements ICrudService<TEntityList, TEntity> {
+export class CrudHttpService<TEntity, TEntityList> implements ICrudService<TEntity, TEntityList> {
 
     private endpoint: (replacements?: {}) => string;
 

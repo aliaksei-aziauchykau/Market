@@ -9,10 +9,39 @@ router.use("/:stripeId/products", stripeProductRouter);
 router.use("/:stripeId/plans", stripePlanRouter);
 
 router.get("/", (request, response) => {
+    
+    const {
+        limit,
+        skip,
+        sort,
+        order,
+        query,
+        helpQueryParams,
+    } = request.query;
+
+    if(!ValueCheckerUtil.CheckInputParams(response, {
+    }, {
+    }, {
+        limit,
+        skip,
+        sort,
+        order,
+        query,
+        helpQueryParams
+    })) return;
+
+    const queryParams = ValueCheckerUtil.ClearObject({
+        limit,
+        skip,
+        sort,
+        order,
+        query,
+    });
 
     routeHandler.getAllAction({
         getSchemaFn: sc => sc.StripeDetailSchema,
-        getViewModelFn: vm => vm.StripeViewModel
+        getViewModelFn: vm => vm.StripeInfoListViewModel,
+        queryParams
     }, response);
 });
 
@@ -30,7 +59,7 @@ router.get("/:stripeId", (request, response) => {
     routeHandler.getAction({
         id: stripeId,
         getSchemaFn: sc => sc.StripeDetailSchema,
-        getViewModelFn: vm => vm.StripeViewModel
+        getViewModelFn: vm => vm.StripeInfoViewModel
     }, response);
 });
 
@@ -49,7 +78,7 @@ router.post("/", (request, response) => {
     });
 
     if(!ValueCheckerUtil.CheckInputParams(response, {
-        userId
+        // userId
     }, {
         ...sourceModel
     })) return;
@@ -58,11 +87,11 @@ router.post("/", (request, response) => {
         sourceModel,
         getSchemaFn: sc => sc.StripeDetailSchema,
         getDbModelFn: db => db.StripeDetail,
-        getViewModelFn: vm => vm.StripeViewModel,
-        checkModel: {
-            id: userId,
-            getSchemaFn: sc => sc.UserSchema
-        }
+        getViewModelFn: vm => vm.StripeInfoViewModel,
+        // checkModel: {
+        //     id: userId,
+        //     getSchemaFn: sc => sc.UserSchema
+        // }
     }, response);
 });
 
@@ -92,7 +121,7 @@ router.put("/:stripeId", (request, response) => {
         id: stripeId,
         sourceModel,
         getSchemaFn: sc => sc.StripeDetailSchema,
-        getViewModelFn: vm => vm.StripeViewModel,
+        getViewModelFn: vm => vm.StripeInfoViewModel,
     }, response);
 });
 
