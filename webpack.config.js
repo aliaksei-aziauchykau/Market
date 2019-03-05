@@ -12,7 +12,8 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPl
 const CompressionPlugin = require("compression-webpack-plugin");
 const scssRules = require("./configs/webpack.styles.config")();
 const WatchTimePlugin = require("webpack-watch-time-plugin");
-// 
+// //
+
 const ROOT = resolve(__dirname);
 const SRC = resolve(ROOT, "./src");
 
