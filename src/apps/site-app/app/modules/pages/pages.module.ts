@@ -7,6 +7,7 @@ import { UserPageModule } from "./user-page/user-page.module";
 import { ProductPageModule } from "./product-page/product-page.module";
 import { NotFoundPageModule } from "./not-found-page/not-found-page.module";
 import { AdminPageModule } from "./admin-page/admin-page.module";
+import { SetupStripePageModule } from "./setup-stripe-page/setup-stripe-page.module";
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import { AdminPageModule } from "./admin-page/admin-page.module";
         RegistrationPageModule,
         UserPageModule,
         ProductPageModule,
-        NotFoundPageModule
+        NotFoundPageModule,
+        SetupStripePageModule
     ],
     declarations: [],
     exports: [],

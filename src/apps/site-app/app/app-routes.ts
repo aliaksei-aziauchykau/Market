@@ -6,6 +6,7 @@ import { UserPageComponent } from "./modules/pages/user-page/user-page.component
 import { ProductPageComponent } from "./modules/pages/product-page/product-page.component";
 import { NotFoundPageComponent } from "./modules/pages/not-found-page/not-found-page.component";
 import { AdminPageComponent } from "./modules/pages/admin-page/admin-page.component";
+import { SetupStripePageComponent } from "./modules/pages/setup-stripe-page/setup-stripe-page.component";
 
 const routes: Routes = [
     {
@@ -15,6 +16,10 @@ const routes: Routes = [
     {
         path: "admin",
         component: AdminPageComponent
+    },
+    {
+        path: "setup",
+        component: SetupStripePageComponent
     },
     {
         path: "login",

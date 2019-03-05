@@ -11,7 +11,7 @@ import { MatSortModule } from "@angular/material/sort";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatCardModule } from "@angular/material/card";
 import { MatExpansionModule } from "@angular/material/expansion";
-import { MatGenericTable } from "./models/mat-generic-table.abstract";
+import { MatStepperModule } from "@angular/material/stepper";
 
 @NgModule({
     exports: [
@@ -26,7 +26,8 @@ import { MatGenericTable } from "./models/mat-generic-table.abstract";
         MatSortModule,
         MatProgressSpinnerModule,
         MatCardModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatStepperModule
     ]
 })
 

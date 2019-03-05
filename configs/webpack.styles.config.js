@@ -26,7 +26,7 @@ const getStyleRules = () => {
                     loader: "sass-loader",
                     options: {
                         outputStyle: "compressed",
-                        includePaths: [path.resolve(__dirname, "../src/css")]
+                        includePaths: [path.resolve(__dirname, "./src")]
                     }
                 }
             ]

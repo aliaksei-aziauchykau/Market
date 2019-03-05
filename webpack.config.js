@@ -74,7 +74,11 @@ const commonConfig = {
     },
     context: SRC,
     resolve: {
-        extensions: [".ts", ".js", ".jsx"]
+        extensions: [".ts", ".js", ".jsx"],
+        modules: [
+            path.resolve(__dirname, "./src"),
+            "node_modules"
+        ]
     },
     plugins: [
         new CompressionPlugin(),
