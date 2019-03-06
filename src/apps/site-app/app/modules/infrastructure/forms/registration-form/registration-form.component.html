@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <input name="passwordEntered" formControlName="password" type="password" class="form-control" id="passwordEntered" placeholder="Enter password" />
-                <div class="alert alert-danger mt-2" role="alert" *ngIf="passwordControl.invalid && (passwordControl.dirty || passwordControl.touched)">
+                <div class="alert alert-danger mt-2" role="alert" *ngIf="passwordControl.invalid && passwordControl.touched">
                     <div *ngIf="passwordControl.errors.required">
                         Password is required field
                     </div>

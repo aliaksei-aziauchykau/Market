@@ -1,6 +1,6 @@
 
-$icon-font-path: "../../../../../../../content/fonts/";
-@import "css/open-iconic-bootstrap.scss";
+$icon-font-path: "~root_module/content/fonts/";
+@import "~root_module/css/open-iconic-bootstrap.scss";
 
 .success-mark {
     color: rgb(88, 221, 144);

@@ -6,6 +6,7 @@ import { Router } from "@angular/router";
 import { Validators, FormGroup, FormControl, AbstractControl } from "@angular/forms";
 import { FormBuilder } from "@angular/forms";
 import { confirmedFieldValidator } from "../helpers/custom-form.validators";
+import { ValueChecker } from "root_module/apps/site-app/app/utils/value-checker.utils";
 
 
 @Component({
@@ -24,7 +25,7 @@ export class RegistrationFormComponent implements OnInit {
             Validators.minLength(4),
             Validators.maxLength(12)
         ])],
-        confirmPassword: [""],
+        confirmPassword: ["", Validators.required],
         role: ["", Validators.required]
     }, { validators: confirmedFieldValidator(["confirmPassword", "password"]) });
 
@@ -57,15 +58,12 @@ export class RegistrationFormComponent implements OnInit {
     }
 
     private get isValidEnteredPassword(): boolean {
-        const result: boolean = this.registrationInfo.password && this.registrationInfo.password.length >= 8;
+        const result: boolean = this.passwordControl.valid;
         return result;
     }
 
     private get isValidConfirmedPassword(): boolean {
-        const result: boolean = this.registrationInfo.password
-            && this.registrationInfo.confirmPassword
-            && this.registrationInfo.password === this.registrationInfo.confirmPassword
-            && this.isValidEnteredPassword;
+        const result: boolean = !ValueChecker.isValid(this.registrationForm.errors.confirmedField) && this.confirmPasswordControl.valid;
         return result;
     }
 
