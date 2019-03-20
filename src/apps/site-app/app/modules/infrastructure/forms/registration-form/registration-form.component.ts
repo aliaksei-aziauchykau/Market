@@ -63,7 +63,8 @@ export class RegistrationFormComponent implements OnInit {
     }
 
     private get isValidConfirmedPassword(): boolean {
-        const result: boolean = !ValueChecker.isValid(this.registrationForm.errors.confirmedField) && this.confirmPasswordControl.valid;
+        const result: boolean = (!ValueChecker.isValid(this.registrationForm.errors) || !ValueChecker.isValid(this.registrationForm.errors.confirmedField))
+            && this.confirmPasswordControl.valid;
         return result;
     }
 
