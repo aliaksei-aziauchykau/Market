@@ -2,6 +2,7 @@
 const database = require("../../db/database");
 const executor = require("../../helpers/excecutor");
 const ValueCheckerUtil = require("../../helpers/value.checker");
+const configProvider = require("../../helpers/config.provider");
 
 const getListCountAsync = async (queryParams, getSchemaFun) => {
     queryParams = queryParams || {};
@@ -37,6 +38,8 @@ const getListByQueryAsync =  async (queryParams, getSchemaFun) => {
     const Schema = getSchemaFun(database.schemes);
 
     // Can be removed
+
+    // if()
     await Schema.createIndexes();
     const result = await Schema
         .find(querySearch)

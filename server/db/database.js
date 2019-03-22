@@ -55,12 +55,13 @@ class DatabaseBuilder {
         Object.assign(this._schemes, { [name]: model });
 
         indexSetupFn && indexSetupFn(scheme);
+        // configProvider.config.configProvider && indexSetupFn && indexSetupFn(scheme);
         return this;
     }
 
     connect(dbName = "") {
         
-        const connection = configProvider.config.dbConnection;
+        const connection = configProvider.config.dbPath || configProvider.config.dbConnection;
         console.log(JSON.stringify(configProvider.config));
         console.log("Connection", connection);
         

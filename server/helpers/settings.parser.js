@@ -17,7 +17,9 @@ class SettingsParser {
             DB_REPLICASET: this.getVariable(env.DB_REPLICASET),
             DB_ADDITIONAL: this.getVariable(env.DB_ADDITIONAL),
             STRIPE_PR_KEY: this.getVariable(env.STRIPE_PR_KEY),
-            STRIPE_APP_KEY: this.getVariable(env.STRIPE_APP_KEY)
+            STRIPE_APP_KEY: this.getVariable(env.STRIPE_APP_KEY),
+            DB_SETUP_INDEXES: this.getVariable(env.DB_SETUP_INDEXES, false),
+            DB_PATH: this.getVariable(env.DB_PATH),
         };
 
         const settings = {
@@ -27,7 +29,9 @@ class SettingsParser {
                 ? this.getLocalDbConnection(rawSettings) 
                 : this.getRemoteDbConnection(rawSettings),
             stripePrivateKey: rawSettings.STRIPE_PR_KEY,
-            stripeAppKey: rawSettings.STRIPE_APP_KEY
+            stripeAppKey: rawSettings.STRIPE_APP_KEY,
+            isSetupDbIndexes: rawSettings.DB_SETUP_INDEXES,
+            dbPath: rawSettings.DB_PATH
         }
         
         return settings;

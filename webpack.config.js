@@ -38,7 +38,7 @@ const STRIPE_PB_KEY = getVariable(env => env.STRIPE_PB_KEY);
 const STRIPE_APP_KEY = getVariable(env => env.STRIPE_APP_KEY);
 const UI_API_IS_TEST = getVariable(env => env.UI_API_IS_TEST, false);
 const HOT_MODULE_REPLACEMENT = getVariable(env => env.HOT_MODULE_REPLACEMENT, false);
-const API_SERVER = getVariable(env => env.API_SERVER, "localhost:3001");
+const API_SERVER = getVariable(env => env.API_SERVER, null);
 const IS_HEROKU_DEPLOY = getVariable(env => env.IS_HEROKU_DEPLOY, false);
 
 console.log("ENV:", HOT_MODULE_REPLACEMENT, NODE_ENV, APP_TYPE, USE_DEVSERVER);
