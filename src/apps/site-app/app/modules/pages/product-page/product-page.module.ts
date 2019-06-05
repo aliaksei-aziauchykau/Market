@@ -16,9 +16,6 @@ import { PopupsModule } from "../../infrastructure/popups/popups.module";
     declarations: [
         ProductPageComponent
     ],
-    exports: [
-        ProductPageComponent
-    ],
     providers: [],
 })
 export class ProductPageModule {}

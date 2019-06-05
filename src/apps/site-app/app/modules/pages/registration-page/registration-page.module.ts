@@ -11,9 +11,6 @@ import { RegistrationPageComponent } from "./registration-page.component";
     declarations: [
         RegistrationPageComponent
     ],
-    exports: [
-        RegistrationPageComponent
-    ],
     providers: [],
 })
 export class RegistrationPageModule {}

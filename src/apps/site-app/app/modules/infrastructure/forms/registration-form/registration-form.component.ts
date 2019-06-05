@@ -70,9 +70,9 @@ export class RegistrationFormComponent implements OnInit {
 
     private onSubmit() {
         this.httpService.invokePost(Endpoints.Registration(), {
-            nickName: this.registrationInfo.nickName,
-            email: this.registrationInfo.email,
-            password: this.registrationInfo.confirmPassword
+            nickName: this.nickNameControl.value,
+            email: this.emailControl.value,
+            password: this.passwordControl.value
         }).subscribe(
             (data: any) => this.router.navigate(["/login"]),
             (error: any) => console.error(error)

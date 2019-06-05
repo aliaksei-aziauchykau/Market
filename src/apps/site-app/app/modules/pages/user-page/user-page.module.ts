@@ -18,9 +18,6 @@ import { PlanModule } from "../../business/plan/plan.module";
     declarations: [
         UserPageComponent,
     ],
-    exports: [
-        UserPageComponent
-    ],
     providers: [],
 })
 export class UserPageModule {}

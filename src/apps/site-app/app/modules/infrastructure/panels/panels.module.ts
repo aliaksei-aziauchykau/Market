@@ -24,6 +24,7 @@ import { ControlsModule } from "../controls/controls.module";
         SettingsPanelComponent
     ],
     exports: [
+        StripeSettingsPanelComponent,
         SettingsPanelComponent
     ],
     providers: [],

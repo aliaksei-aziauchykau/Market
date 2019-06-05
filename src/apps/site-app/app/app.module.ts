@@ -28,7 +28,7 @@ import { CustomPipesModule } from "./pipes/custom-pipes.module";
     CustomHttpServicesModule,
 
     // Pages
-    PagesModule,
+    // PagesModule,
 
     HttpClientModule,
     NgReduxModule,

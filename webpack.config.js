@@ -113,6 +113,7 @@ const commonConfig = {
                 exclude: /node_modules/,
                 loaders: [
                     "ts-loader",
+                    "angular-router-loader",
                     "angular2-template-loader"
                 ]
             },

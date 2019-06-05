@@ -1,41 +1,33 @@
 import { Routes } from "@angular/router";
-import { HomePageComponent } from "./modules/pages/home-page/home-page.component";
-import { LoginPageComponent } from "./modules/pages/login-page/login-page.component";
-import { RegistrationPageComponent } from "./modules/pages/registration-page/registration-page.component";
-import { UserPageComponent } from "./modules/pages/user-page/user-page.component";
-import { ProductPageComponent } from "./modules/pages/product-page/product-page.component";
-import { NotFoundPageComponent } from "./modules/pages/not-found-page/not-found-page.component";
-import { AdminPageComponent } from "./modules/pages/admin-page/admin-page.component";
-import { SetupStripePageComponent } from "./modules/pages/setup-stripe-page/setup-stripe-page.component";
 
 const routes: Routes = [
     {
         path: "home",
-        component: HomePageComponent
+        loadChildren: "./modules/pages/home-page/home-page.module#HomePageModule",
     },
     {
         path: "admin",
-        component: AdminPageComponent
+        loadChildren: "./modules/pages/admin-page/admin-page.module#AdminPageModule"
     },
     {
         path: "setup",
-        component: SetupStripePageComponent
+        loadChildren: "./modules/pages/setup-stripe-page/setup-stripe-page.module#SetupStripePageModule"
     },
     {
         path: "login",
-        component: LoginPageComponent
+        loadChildren: "./modules/pages/login-page/login-page.module#LoginPageModule",
     },
     {
         path: "registration",
-        component: RegistrationPageComponent
+        loadChildren: "./modules/pages/registration-page/registration-page.module#RegistrationPageModule"
     },
     {
         path: "user",
-        component: UserPageComponent
+        loadChildren: "./modules/pages/user-page/user-page.module#UserPageModule"
     },
     {
         path: "product/:id",
-        component: ProductPageComponent
+        loadChildren: "./modules/pages/product-page/product-page.module#ProductPageModule"
     },
     {
         path: "",
@@ -44,7 +36,7 @@ const routes: Routes = [
     },
     {
         path: "**",
-        component: NotFoundPageComponent
+        loadChildren: "./modules/pages/not-found-page/not-found-page.module#NotFoundPageModule"
     }
 ];
 

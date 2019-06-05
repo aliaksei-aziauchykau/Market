@@ -4,6 +4,7 @@ import { SetupStripePageComponent } from "./setup-stripe-page.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LayoutModule } from "../../infrastructure/layouts/layout.module";
 import { MaterialModule } from "../../infrastructure/material/material.module";
+import { PanelsModule } from "../../infrastructure/panels/panels.module";
 
 @NgModule({
     imports: [
@@ -11,7 +12,8 @@ import { MaterialModule } from "../../infrastructure/material/material.module";
         FormsModule,
         LayoutModule,
         MaterialModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        PanelsModule
     ],
     declarations: [
         SetupStripePageComponent

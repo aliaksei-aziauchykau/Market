@@ -9,7 +9,6 @@ import { NotFoundPageComponent } from "./not-found-page.component";
         LayoutModule
     ],
     declarations: [NotFoundPageComponent],
-    exports: [NotFoundPageComponent],
     providers: [],
 })
 export class NotFoundPageModule { }

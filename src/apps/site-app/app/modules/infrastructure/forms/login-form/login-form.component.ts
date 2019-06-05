@@ -33,7 +33,7 @@ export class LoginFormComponent implements OnInit {
     private success(response: AuthResponseModel) {
         this.error = response.error || null;
         if (response.isAuth) {
-            this.router.navigate(["/user"]);
+            this.router.navigate(["/setup"]);
         }
     }
 

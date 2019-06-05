@@ -7,6 +7,7 @@ import { FormsModule } from "@angular/forms";
 import { CustomPipesModule } from "../../../pipes/custom-pipes.module";
 import { MatUserDataTableComponent } from "./user-data/user-table.component";
 import { MatStripeDataTableComponent } from "./stripe-data/stripe-data.component";
+import { AdminPageRoutingModule } from "./admin-page.routing.module";
 
 @NgModule({
     imports: [
@@ -14,14 +15,12 @@ import { MatStripeDataTableComponent } from "./stripe-data/stripe-data.component
         FormsModule,
         LayoutModule,
         MaterialModule,
-        CustomPipesModule
+        CustomPipesModule,
+        AdminPageRoutingModule
     ],
     declarations: [
         MatUserDataTableComponent,
         MatStripeDataTableComponent,
-        AdminPageComponent
-    ],
-    exports: [
         AdminPageComponent
     ],
     providers: [],

@@ -97,6 +97,7 @@ app.use("/api/posts", posts);
 app.use("/api/sessions", sessions);
 
 app.use("/user", authMiddleware, userHandler);
+app.use("/setup", authMiddleware, userHandler);
 
 app.get("*", (request, response) => 
     response.sendFile(path.join(__dirname, "public", "build", "site-app", "index.html"))

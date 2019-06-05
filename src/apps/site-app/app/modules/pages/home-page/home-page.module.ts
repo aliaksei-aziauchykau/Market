@@ -8,6 +8,7 @@ import { HomePageComponent } from "./home-page.component";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { SubscriptionComponent } from "./subscription/subscription.component";
 import { ProductModule } from "../../business/product/product.module";
+import { HomePageRoutingModule } from "./home-page.routing.module";
 
 
 @NgModule({
@@ -17,14 +18,12 @@ import { ProductModule } from "../../business/product/product.module";
     LayoutModule,
     ControlsModule,
     WidgetsModule,
-    ProductModule
+    ProductModule,
+    HomePageRoutingModule
   ],
   declarations: [
     SubscriptionComponent,
     WelcomeComponent,
-    HomePageComponent
-  ],
-  exports: [
     HomePageComponent
   ]
 })
